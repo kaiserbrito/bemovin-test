@@ -1,0 +1,7 @@
+<ul>
+  <% @urls_to_add.each do |a| %>
+    <% if !a.nil? and a.include? "mailto:" %>
+      <li><%= a[7..a.length] %></li>
+    <% end %>
+  <% end %>
+</ul>
