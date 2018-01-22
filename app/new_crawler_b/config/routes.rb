@@ -1,9 +1,11 @@
-require 'sidekiq/web'
 Rails.application.routes.draw do  
+
+  require 'sidekiq/web'
   
   mount Sidekiq::Web => '/sidekiq'
 
-  get 'crawler/index', :as => :crawler
-
-  root 'crawler#index'
+  root to: 'crawler#index'
+    
+  get 'crawler/search' => 'crawler#search', as: :crawler_url
+  
 end
