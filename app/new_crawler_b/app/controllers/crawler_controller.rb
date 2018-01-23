@@ -23,7 +23,10 @@ class CrawlerController < ApplicationController
     end
     
     include(urls_to_add)
-    # CrawlerWorker.perform_async(urls_to_add)
+    
+    # Por conta da falta de memória na minha máquina, está dando um erro que o serviço não é reconhecido, pois eu não consigo ativar o 'redis-server'
+    # CrawlerWorker.perform_async
+    
     redirect_to root_path
   end
   
