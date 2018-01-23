@@ -2,9 +2,11 @@ require 'open-uri'
 
 class CrawlerController < ApplicationController
 
-  # Função de início que já pega 10 emails
+  # Função de início que já pega 10 emails e todos os e-mails e url visitadas
   def index
     @emails = Email.take(10)
+    @all = Email.all
+    @visit = Url.all
   end  
   
   # Função que busca urls na pagina, através do Nokogiri  
@@ -23,10 +25,8 @@ class CrawlerController < ApplicationController
     end
     
     include(urls_to_add)
-    
     # Por conta da falta de memória na minha máquina, está dando um erro que o serviço não é reconhecido, pois eu não consigo ativar o 'redis-server'
     # CrawlerWorker.perform_async
-    
     redirect_to root_path
   end
   

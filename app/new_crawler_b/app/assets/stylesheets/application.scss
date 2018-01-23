@@ -2,15 +2,21 @@
   min-height: 80px !important;
 }
 
-#infos {
-  border-radius: 50%;
-  background-color: orange;
-  color: white;
-	width: 200px;
-	height: 200px;
+.block {
+  text-align: center;
+  vertical-align: middle;
 }
-
-#infos p {
-  margin: 40px 25px 10px;
-  font-size: 80px;
+.circle {
+  background: #F57C20;
+  border-radius: 200px;
+  color: white;
+  height: 200px;
+  font-weight: bold;
+  width: 200px;
+  display: table;
+  margin: 20px auto;
+}
+.circle h3, h2 {
+  vertical-align: middle;
+  display: table-cell;
 }
