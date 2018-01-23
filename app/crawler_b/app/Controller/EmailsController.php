@@ -18,11 +18,13 @@ class EmailsController extends AppController {
 			'emailsTotal' => $this->Email->find('count'),
 			'urlsTotal'   => $this->Url->find('count'),
 			'urlsVisited' => $this->Url->find('count', array(
-        'conditions' => array('visited' => true)
+        'conditions' => array('visited' => 1)
     	))
 		); 
 
 		return new CakeResponse(array(
+			'statusCode' => 200,
+			'type' => 'application/json',
 			'body' => json_encode($responser)
 		));	
 	}

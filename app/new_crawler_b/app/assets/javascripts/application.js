@@ -11,3 +11,28 @@
 // about supported directives.
 //
 //= require rails-ujs
+
+$(document).ready(function() {
+  $(function () {
+    setInterval(function () {
+        $.get("http://localhost/emails/get_emails", function (data) {
+            $("#urlsTotal").html(data["urlsTotal"]);
+            $("#totalEmails").html(data["emailsTotal"]);
+            $("#urlsVisitadas").html(data["urlsVisited"]);
+
+
+            var tabela = $("<table />");
+            for (var i = 0; i < data['emails'].length; i++) {
+                coluna = $(tabela[0].insertRow(-1));
+                var popularTabela = $("<td />");
+                cell.html(data['emails'][i]['Emails']['emails']);
+                coluna.append(popularTabela);
+            }
+
+            var preencher = $("#tabela_emails");
+            preencher.html("");
+            preencher.append(tabela);
+        });
+    }, 1000);
+  });
+});
