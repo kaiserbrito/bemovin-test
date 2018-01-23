@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   root to: 'crawler#index'
     
-  get 'crawler/search' => 'crawler#search', as: :crawler_url
+  get 'crawler/get_emails' => 'crawler#get_emails', as: :crawler_url
   
 end

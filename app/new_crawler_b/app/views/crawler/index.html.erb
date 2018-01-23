@@ -1,22 +1,29 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h1 style="margin-left: 200px;">Crawler de Emails</h1>
-  <div class="row">
-    <div class="col-md-4 block">
-        <div class="circle">
-            <h2><%= @all.count %></h>
-            <h3>emails no total</h3>
+  <% if @all.count > 0 %>
+    <div class="row">
+        <div class="col-md-4 block">
+            <div class="circle">
+                <h2><%= @all.count %></h>
+                <h3>emails no total</h3>
+            </div>
+        </div>
+        <div class="col-md-4 block">
+            <div class="circle">
+                <h2><%= @visit.count %></h2>
+                <h3>urls visitadas</h3>
+            </div>
         </div>
     </div>
-    <div class="col-md-4 block">
-        <div class="circle">
-            <h2><%= @visit.count %></h2>
-            <h3>urls visitadas</h3>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <%= link_to "Iniciar", :crawler_url, class: "btn-menu btn btn-primary", id: "botao-iniciar" %>
-    <%= render 'emails/index' %>
-  </div>
+    <div class="row">
+        <%= link_to "Iniciar", :crawler_url, class: "btn-menu btn btn-primary", id: "botao-iniciar" %>
+        <%= render 'emails/index' %>
+    </div>    
+  <% else %>  
+    <div class="row">
+        <%= link_to "Iniciar", :crawler_url, class: "btn-menu btn btn-primary", id: "botao-iniciar" %>
+        <%= render 'emails/index' %>
+    </div>    
+  <% end %>
   
 </div>
